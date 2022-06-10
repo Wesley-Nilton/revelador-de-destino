@@ -55,3 +55,20 @@ body{
 #container button:hover{
     filter: brightness(1.2);
 }
+
+#answer{
+    margin-top: 3rem;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#answer.visible{
+    opacity: 1;
+}
+
+#answer p{
+    font-size: 1.6rem;
+    font-weight: normal;
+    opacity: 0.9;
+    margin-bottom: 1rem;
+}
