@@ -27,7 +27,10 @@ const answers = [
 // Click on the button
 function askQuestion(){
     if(entryQuestion.value == ""){
-        alert("Digite sua pergunta");
+        askButton.setAttribute("disabled", true);
+        answerElement.innerHTML = `<h3>Sinto muito, eu não leio mentes! Digite sua pergunta.</h3>`;
+        answerElement.classList.add("visible");
+        timeToDisappear();
         return;
     };
 
@@ -41,9 +44,15 @@ function askQuestion(){
     const question = `<p>${entryQuestion.value}</p>`;
     const finalAnswer = `<h3>${answers[randomNumber]}</h3>`;
     answerElement.innerHTML = `${question + finalAnswer}`;
+
+    entryQuestion.value = "";
     answerElement.classList.add("visible");
 
-    // Disappear after 4 seconds
+    timeToDisappear();
+}
+
+// Disappear after 4 seconds
+function timeToDisappear(){
     setTimeout(function() {
         answerElement.classList.remove("visible");
         askButton.removeAttribute("disabled");
